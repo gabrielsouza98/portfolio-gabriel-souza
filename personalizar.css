@@ -1,5 +1,5 @@
 /* Suas alterações de estilo podem ficar aqui. */
-.reveal { opacity: 1 !important; transform: none !important; visibility: visible !important; }
+.reveal { visibility: visible; }
 
 /* Seção de projetos — ilustrações, cartões e detalhes acessíveis. */
 .projects{scroll-margin-top:100px;background:#f2f3ef;color:#17251f}

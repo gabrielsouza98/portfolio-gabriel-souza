@@ -25,6 +25,6 @@ O endereço público é informado pelo GitHub ao concluir a publicação. Criar 
 
 ## Origem e limites
 
-Esta é uma recuperação da versão publicada, com uma página HTML editável. Não corresponde ao código-fonte original completo do projeto. `index.html`, `backup/` e os módulos em `_next/static/chunks/` preservam a publicação recuperada. Eles não são usados no novo build estático. A versão editável tem interações simplificadas e não executa a cena 3D original.
+Esta é uma recuperação da versão publicada, com uma página HTML editável. Não corresponde ao código-fonte original completo do projeto. `index.html`, `backup/` e os módulos em `_next/static/chunks/` preservam a publicação recuperada. Eles não são usados no novo build estático. A versão editável carrega a cena Spline original de assets/scene.splinecode e inclui animações de entrada, efeitos nos cartões e transições durante a rolagem. O runtime Spline é carregado por CDN.
 
 As imagens dos projetos são ilustrações conceituais. O servidor doméstico é uma configuração com ferramentas existentes; Copyparty não foi desenvolvido pelo autor deste portfólio.
