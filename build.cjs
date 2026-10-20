@@ -4,6 +4,8 @@ const root = __dirname;
 const out = path.join(root, 'site');
 fs.mkdirSync(out, { recursive: true });
 let html = fs.readFileSync(path.join(root, 'editar.html'), 'utf8');
+const version = require('node:crypto').createHash('sha256').update(fs.readFileSync(path.join(root, 'interacoes.js'))).digest('hex').slice(0, 12);
+html = html.replace(/interacoes\\.js(?:\\?[^"']*)?/g, 'interacoes.js?v=' + version);
 html = html.replace(/(src|href)="\/(?!\/)/g, '$1="./');
 fs.writeFileSync(path.join(out, 'index.html'), html);
 for (const name of ['personalizar.css', 'interacoes.js', 'favicon.svg', 'fonts', 'assets']) {
