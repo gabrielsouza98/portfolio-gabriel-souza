@@ -7,16 +7,16 @@
 <title>Gabriel Souza — Desenvolvimento, infraestrutura e suporte de TI</title>
 <meta name="description" content="Desenvolvimento web, suporte técnico, infraestrutura e automação com Gabriel Souza. Em Teresina, PI, e por atendimento remoto. Converse sobre seu projeto."/>
 <link rel="icon" href="/favicon.svg"/>
-<link rel="stylesheet" href="/personalizar.css?v=20261020-3d"/>
+<link rel="stylesheet" href="/personalizar.css?v=showcase-20261020"/>
 </head>
 <body>
 <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 <header class="site-header">
 <a class="brand" href="#inicio" aria-label="Gabriel Souza — início">g/s<span>.</span>
 </a>
-<nav id="main-menu" aria-label="Principal" class="">
+<nav id="main-menu" aria-label="Principal" class=""><a class="nav-projects" href="#projetos">Projetos</a>
 <a href="#servicos">Serviços</a>
-<a href="#projetos">Projetos</a>
+
 <a href="#experiencia">Experiência</a>
 <a href="#processo">Processo</a>
 <a href="#contato">Contato</a>
@@ -71,7 +71,7 @@
 </path>
 </svg>
 </a>
-<a class="secondary-button" href="#servicos">Explorar serviços <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down" aria-hidden="true">
+<a class="secondary-button" href="#projetos">Explorar projetos <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down" aria-hidden="true">
 <path d="M12 5v14">
 </path>
 <path d="m19 12-7 7-7-7">
@@ -131,9 +131,34 @@
 <a href="#visao">PENSAR. CONECTAR. RESOLVER. ↓</a>
 </div>
 </section>
+<section class="projects section-pad" id="projetos" aria-labelledby="projects-title">
+  <div class="section-index"><span>01 / PROJETOS</span><span>EXPLORE AS EXPERIÊNCIAS</span></div>
+  <div class="projects-intro"><h2 id="projects-title">Ideias em movimento.<br/><em>Explore o que eu construí.</em></h2><p>Experimente as demonstrações, descubra como cada projeto funciona e veja as tecnologias por trás de cada ideia.</p></div>
+  <div class="project-grid showcase-grid">
+    <article class="project-card" aria-labelledby="particle-title">
+      <div class="project-stage particle-stage" aria-label="Demonstração visual de partículas interativas">
+<canvas class="particle-preview" aria-label="Partículas que reagem ao mouse ou ao toque"></canvas>
+<div class="stage-top"><span class="live-pill"><i></i> DEMO INTERATIVA</span><span>01 / PARTICLEWALL</span></div>
+<div class="stage-caption"><span class="stage-symbol">✳</span><strong>O movimento<br/>vira experiência.</strong><span>Mova o cursor ou toque para interagir</span></div>
+<div class="stage-controls" role="group" aria-label="Comportamento das partículas"><button type="button" data-particle-mode="repel" aria-pressed="true">Afastar</button><button type="button" data-particle-mode="attract" aria-pressed="false">Atrair</button><button type="button" data-particle-mode="orbit" aria-pressed="false">Orbitar</button></div>
+</div>
+      <div class="project-content"><p class="project-category">01 / EXPERIÊNCIA INTERATIVA</p><h3 id="particle-title">ParticleWall 3D</h3><p class="project-subtitle">Sua mão. Milhares de possibilidades.</p><p>Uma experiência visual de partículas controladas por gestos, pensada para usar a câmera como entrada e um projetor HDMI como saída. A proposta explora interação sem sensores dedicados.</p><ul class="project-tags" aria-label="Tecnologias e recursos do ParticleWall"><li>JavaScript</li><li>Gráficos 3D</li><li>Câmera / webcam</li><li>Projeção HDMI</li></ul>
+      <details class="project-details"><summary>Conhecer o projeto <span aria-hidden="true">↗</span></summary><div class="project-details-body"><h4>O desafio</h4><p>Explorar uma parede interativa usando os equipamentos disponíveis: notebook, projetor e celular como webcam.</p><h4>Como funciona</h4><p>A câmera fornece a imagem das mãos, a aplicação interpreta os gestos e atualiza a cena de partículas no navegador. O projetor exibe o resultado na parede.</p><ol class="project-flow"><li>Capturar movimentos pela câmera.</li><li>Relacionar os gestos à interação visual.</li><li>Atualizar e projetar a cena de partículas.</li></ol><h4>O que este trabalho demonstra</h4><p>Integração entre software e dispositivos, construção de experiências interativas em JavaScript e atenção à configuração da câmera e da projeção.</p></div></details></div>
+    </article>
+    <article class="project-card" aria-labelledby="server-title">
+      <div class="project-stage server-stage" aria-label="Demonstração visual de compartilhamento de arquivos">
+<div class="stage-top"><span class="live-pill"><i></i> DEMO INTERATIVA</span><span>02 / HOME SERVER</span></div>
+<div class="server-scene"><div class="server-phone"><span class="phone-speaker"></span><span class="phone-icon">▤</span><strong>Meu servidor</strong><span class="terminal-line">$ copyparty</span><span class="terminal-line terminal-green">● serviço ativo</span><span class="phone-files">▱ fotos<br/>▱ documentos<br/>▱ vídeos</span></div><div class="transfer-path"><span class="transfer-dot"></span><span class="network-label">REDE LOCAL</span></div><div class="server-browser"><div class="browser-bar"><i></i><i></i><i></i><span>arquivos /</span></div><span class="browser-folder">▱</span><strong>Seus arquivos.<br/>Em outra tela.</strong><span class="received-file" aria-live="polite">Pronto para receber</span></div></div>
+<div class="server-bottom"><span>Do celular para a sua rede.</span><button type="button" class="transfer-button">Simular envio <span aria-hidden="true">↗</span></button></div>
+</div>
+      <div class="project-content"><p class="project-category">02 / INFRAESTRUTURA & REAPROVEITAMENTO</p><h3 id="server-title">Servidor doméstico</h3><p class="project-subtitle">Um celular. Uma nuvem dentro de casa.</p><p>Configuração de um celular Android como servidor de arquivos doméstico. Com Termux e Copyparty, os arquivos podem ser acessados pelo navegador de outros dispositivos na mesma rede.</p><ul class="project-tags" aria-label="Tecnologias do servidor doméstico"><li>Android</li><li>Termux</li><li>Copyparty / Python</li><li>HTTP / rede local</li></ul>
+      <details class="project-details"><summary>Conhecer o projeto <span aria-hidden="true">↗</span></summary><div class="project-details-body"><h4>O desafio</h4><p>Reaproveitar um celular para disponibilizar arquivos em casa, sem depender de um notebook ligado para essa função.</p><h4>Como foi montado</h4><p>O Termux oferece o ambiente de terminal no Android. Nele, o Copyparty, uma ferramenta baseada em Python, serve a pasta de arquivos por HTTP. Outros dispositivos acessam o endereço do celular pela rede local.</p><ol class="project-flow"><li>Preparar o ambiente no Android com Termux.</li><li>Instalar e configurar o Copyparty e a pasta compartilhada.</li><li>Acessar os arquivos em outro dispositivo pelo navegador.</li></ol><h4>O que este trabalho demonstra</h4><p>Uso de terminal, instalação de ferramentas, configuração de serviços HTTP, compreensão de endereços e portas na rede local e reaproveitamento de hardware.</p></div></details></div>
+    </article>
+  </div><p class="showcase-footnote">Prévias interativas do conceito. O ParticleWall completo usa câmera e projetor; o servidor funciona na rede local.</p>
+</section>
 <section class="story" id="visao" aria-label="Como as soluções se conectam">
 <div class="section-index">
-<span>01 / VISÃO</span>
+<span>02 / VISÃO</span>
 <span>O todo importa.</span>
 </div>
 <h2 class="statement reveal">Da aplicação à infraestrutura.<br/>
@@ -183,7 +208,7 @@
 </section>
 <section class="services section-pad" id="servicos">
 <div class="section-index">
-<span>02 / SERVIÇOS</span>
+<span>03 / SERVIÇOS</span>
 <span>Da ideia ao dia a dia.</span>
 </div>
 <div class="services-heading reveal">
@@ -603,22 +628,7 @@
 </section>
 
 <!-- PROJETOS: edite títulos, textos, tecnologias e imagens nesta seção. -->
-<section class="projects section-pad" id="projetos" aria-labelledby="projects-title">
-  <div class="section-index"><span>03 / PROJETOS</span><span>Ideias colocadas em prática.</span></div>
-  <div class="projects-intro"><h2 id="projects-title">Explorar. Construir.<br/><em>Fazer acontecer.</em></h2><p>Projetos pessoais que conectam desenvolvimento, infraestrutura e criatividade. Da interação por câmera ao reaproveitamento de um celular, cada experiência abre espaço para aprender e resolver problemas.</p></div>
-  <div class="project-grid">
-    <article class="project-card" aria-labelledby="particle-title">
-      <figure class="project-cover"><img src="/assets/particlewall-projeto.svg" alt="Ilustração conceitual de uma mão interagindo com partículas luminosas" width="1200" height="720" loading="lazy"/><figcaption>Ilustração conceitual · interação por câmera</figcaption></figure>
-      <div class="project-content"><p class="project-category">01 / EXPERIÊNCIA INTERATIVA</p><h3 id="particle-title">ParticleWall 3D</h3><p class="project-subtitle">Movimentos que transformam uma parede.</p><p>Uma experiência visual de partículas controladas por gestos, pensada para usar a câmera como entrada e um projetor HDMI como saída. A proposta explora interação sem sensores dedicados.</p><ul class="project-tags" aria-label="Tecnologias e recursos do ParticleWall"><li>JavaScript</li><li>Gráficos 3D</li><li>Câmera / webcam</li><li>Projeção HDMI</li></ul>
-      <details class="project-details"><summary>Conhecer o projeto <span aria-hidden="true">↗</span></summary><div class="project-details-body"><h4>O desafio</h4><p>Explorar uma parede interativa usando os equipamentos disponíveis: notebook, projetor e celular como webcam.</p><h4>Como funciona</h4><p>A câmera fornece a imagem das mãos, a aplicação interpreta os gestos e atualiza a cena de partículas no navegador. O projetor exibe o resultado na parede.</p><ol class="project-flow"><li>Capturar movimentos pela câmera.</li><li>Relacionar os gestos à interação visual.</li><li>Atualizar e projetar a cena de partículas.</li></ol><h4>O que este trabalho demonstra</h4><p>Integração entre software e dispositivos, construção de experiências interativas em JavaScript e atenção à configuração da câmera e da projeção.</p><p class="project-note">Projeto pessoal exploratório. O funcionamento depende de câmera, permissões e configuração do ambiente. Esta página apresenta o conceito; não executa a aplicação.</p></div></details></div>
-    </article>
-    <article class="project-card" aria-labelledby="server-title">
-      <figure class="project-cover"><img src="/assets/servidor-projeto.svg" alt="Diagrama conceitual de um celular Android compartilhando arquivos com um navegador pela rede local" width="1200" height="720" loading="lazy"/><figcaption>Ilustração conceitual · arquivos na rede local</figcaption></figure>
-      <div class="project-content"><p class="project-category">02 / INFRAESTRUTURA & REAPROVEITAMENTO</p><h3 id="server-title">Servidor doméstico</h3><p class="project-subtitle">Um novo propósito para um celular.</p><p>Configuração de um celular Android como servidor de arquivos doméstico. Com Termux e Copyparty, os arquivos podem ser acessados pelo navegador de outros dispositivos na mesma rede.</p><ul class="project-tags" aria-label="Tecnologias do servidor doméstico"><li>Android</li><li>Termux</li><li>Copyparty / Python</li><li>HTTP / rede local</li></ul>
-      <details class="project-details"><summary>Conhecer o projeto <span aria-hidden="true">↗</span></summary><div class="project-details-body"><h4>O desafio</h4><p>Reaproveitar um celular para disponibilizar arquivos em casa, sem depender de um notebook ligado para essa função.</p><h4>Como foi montado</h4><p>O Termux oferece o ambiente de terminal no Android. Nele, o Copyparty, uma ferramenta baseada em Python, serve a pasta de arquivos por HTTP. Outros dispositivos acessam o endereço do celular pela rede local.</p><ol class="project-flow"><li>Preparar o ambiente no Android com Termux.</li><li>Instalar e configurar o Copyparty e a pasta compartilhada.</li><li>Acessar os arquivos em outro dispositivo pelo navegador.</li></ol><h4>O que este trabalho demonstra</h4><p>Uso de terminal, instalação de ferramentas, configuração de serviços HTTP, compreensão de endereços e portas na rede local e reaproveitamento de hardware.</p><p class="project-note">Trabalho de configuração e integração com ferramentas existentes. O Copyparty não foi desenvolvido por mim. O acesso local foi colocado em funcionamento; não se trata de um serviço público hospedado neste portfólio.</p></div></details></div>
-    </article>
-  </div>
-</section>
+
 
 <section class="experience section-pad" id="experiencia">
 <div class="section-index">

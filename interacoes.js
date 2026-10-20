@@ -87,3 +87,83 @@
   }
   loadRobot();
 })();
+
+/* Demonstrações visuais da vitrine: sem câmera ou acesso a arquivos. */
+(() => {
+  const canvas = document.querySelector('.particle-preview');
+  const stage = canvas?.closest('.particle-stage');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  if (canvas && stage) {
+    const ctx = canvas.getContext('2d');
+    if (ctx) {
+      let width=1,height=1,points=[],mode='repel',frame=0,visible=false,time=0;
+      const pointer={x:0,y:0,active:false};
+      function resize() {
+        const box=stage.getBoundingClientRect();
+        width=box.width; height=box.height;
+        const ratio=Math.min(devicePixelRatio||1,2);
+        canvas.width=Math.round(width*ratio);canvas.height=Math.round(height*ratio);
+        ctx.setTransform(ratio,0,0,ratio,0,0);
+        points=Array.from({length:190},(_,i)=>{
+          const angle=i*2.39996, radius=Math.sqrt(i/190)*Math.min(width*.47,height*.48);
+          return {x:width*.68+Math.cos(angle)*radius,y:height*.48+Math.sin(angle)*radius,
+            bx:width*.68+Math.cos(angle)*radius,by:height*.48+Math.sin(angle)*radius,
+            vx:0,vy:0,size:1+(i%4)*.55};
+        });
+        if(reduced.matches) draw();
+      }
+      function draw() {
+        ctx.clearRect(0,0,width,height);
+        const moving=!reduced.matches;
+        if(moving)time+=.015;
+        for(const p of points) {
+          if(moving){
+            let dx=p.x-pointer.x,dy=p.y-pointer.y,d=Math.hypot(dx,dy)||1;
+            p.vx+=(p.bx+Math.sin(time+p.by*.02)*12-p.x)*.008;
+            p.vy+=(p.by+Math.cos(time+p.bx*.02)*12-p.y)*.008;
+            if(pointer.active && d<160){
+              const force=(1-d/160)*1.4;
+              if(mode==='orbit'){p.vx+=(-dy/d)*force;p.vy+=(dx/d)*force;}
+              else {const sign=mode==='attract'?-1:1;p.vx+=(dx/d)*force*sign;p.vy+=(dy/d)*force*sign;}
+            }
+            p.vx*=.9;p.vy*=.9;p.x+=p.vx;p.y+=p.vy;
+          }
+          const glow=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.size*4);
+          glow.addColorStop(0,'rgba(183,187,255,.85)');glow.addColorStop(1,'rgba(124,112,255,0)');
+          ctx.fillStyle=glow;ctx.beginPath();ctx.arc(p.x,p.y,p.size*4,0,Math.PI*2);ctx.fill();
+          ctx.fillStyle='#cbd6ff';ctx.beginPath();ctx.arc(p.x,p.y,p.size*.65,0,Math.PI*2);ctx.fill();
+        }
+      }
+      function loop(){frame=0;draw();if(visible&&!document.hidden&&!reduced.matches)frame=requestAnimationFrame(loop);}
+      function start(){if(visible&&!document.hidden&&!reduced.matches&&!frame)frame=requestAnimationFrame(loop);}
+      stage.addEventListener('pointermove',e=>{const b=stage.getBoundingClientRect();pointer.x=e.clientX-b.left;pointer.y=e.clientY-b.top;pointer.active=true;});
+      stage.addEventListener('pointerleave',()=>pointer.active=false);
+      stage.addEventListener('pointerup',e=>{if(e.pointerType==='touch')pointer.active=false;});
+      stage.querySelectorAll('[data-particle-mode]').forEach(button=>button.addEventListener('click',()=>{
+        mode=button.dataset.particleMode;
+        stage.dataset.particleMode=mode;
+        stage.querySelectorAll('[data-particle-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+      }));
+      new ResizeObserver(resize).observe(stage);
+      new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;if(visible)start();else{cancelAnimationFrame(frame);frame=0;}},{threshold:.01}).observe(stage);
+      document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(frame);frame=0;}else start();});
+      reduced.addEventListener('change',()=>{cancelAnimationFrame(frame);frame=0;if(reduced.matches)draw();else start();});
+      resize();
+    }
+  }
+  const server=document.querySelector('.server-stage');
+  const send=server?.querySelector('.transfer-button');
+  const status=server?.querySelector('.received-file');
+  let count=0;
+  send?.addEventListener('click',()=>{
+    count++;send.disabled=true;status.textContent='Transferindo foto-demo.jpg…';
+    server.classList.add('is-transferring');
+    setTimeout(()=>{
+      server.classList.remove('is-transferring');
+      status.textContent='✓ foto-demo.jpg recebida';
+      send.disabled=false;
+      send.innerHTML='Simular novamente <span aria-hidden="true">↗</span>';
+      server.dataset.transfers=String(count);
+    },reduced.matches?250:3000);
+  });
+})();
