@@ -71,8 +71,8 @@
     frame.append(canvas);
     try {
       let runtime;
-      try { runtime = await import('https://cdn.jsdelivr.net/npm/@splinetool/runtime/build/runtime.js'); }
-      catch { runtime = await import('https://unpkg.com/@splinetool/runtime/build/runtime.js'); }
+      try { runtime = await import('https://cdn.jsdelivr.net/npm/@splinetool/runtime@1.9.82/build/runtime.js'); }
+      catch { runtime = await import('https://unpkg.com/@splinetool/runtime@1.9.82/build/runtime.js'); }
       const app = new runtime.Application(canvas);
       await app.load(new URL('./assets/scene.splinecode', document.baseURI).href);
       frame.querySelector('.scene-placeholder')?.remove();
